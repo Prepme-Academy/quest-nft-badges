@@ -16,10 +16,17 @@ module.exports = {
       url: `https://rpc.open-campus-codex.gelato.digital/`,
       accounts: [process.env.ACCOUNT_PRIVATE_KEY],
     },
+    educhain: {
+      url: "https://rpc.edu-chain.raas.gelato.cloud",
+      accounts: [process.env.ACCOUNT_PRIVATE_KEY],
+      gasPrice: 1000000000,
+      gas: 80000000,
+    },
   },
   etherscan: {
     apiKey: {
       opencampus: "your-etherscan-api-key",
+      educhain: "your-etherscan-api-key",
     },
     customChains: [
       {
@@ -28,6 +35,15 @@ module.exports = {
         urls: {
           apiURL: "https://edu-chain-testnet.blockscout.com/api/",
           browserURL: "https://edu-chain-testnet.blockscout.com/",
+        },
+        accounts: [process.env.ACCOUNT_PRIVATE_KEY],
+      },
+      {
+        network: "educhain",
+        chainId: 41923,
+        urls: {
+          apiURL: "https://educhain.blockscout.com/api/",
+          browserURL: "https://educhain.blockscout.com/",
         },
         accounts: [process.env.ACCOUNT_PRIVATE_KEY],
       },
